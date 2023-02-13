@@ -5,9 +5,11 @@
     <classes>
       <class name="TestNg_framework.WatchList_functionality">
         <methods>
+          <include name="login_button_Test"/>
+          <include name="watchlist_icon_logo_Test"/>
           <include name="close"/>
-          <include name="watchlist_button_Test"/>
           <include name="setup"/>
+          <include name="Technical_test"/>
         </methods>
       </class> <!-- TestNg_framework.WatchList_functionality -->
     </classes>

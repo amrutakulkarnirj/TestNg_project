@@ -35,5 +35,3 @@ public class common extends WatchList_functionality{
 	}
 	}
 	
-
-

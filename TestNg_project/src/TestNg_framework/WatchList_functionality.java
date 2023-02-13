@@ -114,9 +114,9 @@ public class WatchList_functionality extends mainDriver {
     Thread.sleep(5000);
 	common.click("//button[text()=\"Create\"]");
     common.click("//button[@class=\"jsx-2679829868 jsx-2491292752 regular primary button-root\"]/..");
-	//driver.findElement(By.xpath("//button[text()=\"Search Stocks, ETFs & Indices\"]")).click();
-	
-    }
+    boolean search_equity = common.isDisplayed("//input[@id=\"search-stock-input\"]/..");
+   	Assert.assertTrue(search_equity);
+   	}
 	
 	@Test(priority =7)
 	public void search_button_Test() throws InterruptedException {
@@ -138,7 +138,8 @@ public class WatchList_functionality extends mainDriver {
 
 	common.click("//button[@class=\"jsx-2679829868 jsx-2491292752 regular primary button-root\"]/..");
 	common.click("//input[@class=\"jsx-1469468354 stock-input-box full-width input\"]");
-	
+	boolean search_examples = common.isDisplayed("//div[@id=\"react-autowhatever-1\"]");
+   	Assert.assertTrue(search_examples);
     }
 	
 	@Test(priority =8)
@@ -160,7 +161,9 @@ public class WatchList_functionality extends mainDriver {
 	common.click("//button[@class=\"jsx-2679829868 jsx-2491292752 regular primary button-root\"]/..");
 	common.click("//input[@class=\"jsx-1469468354 stock-input-box full-width input\"]");
 	common.sendKeys("//input[@aria-label=\"search text\"]", "TCS");
-	
+	boolean TOP_Text = common.isDisplayed("	//button[@class=\"jsx-2679829868 jsx-2491292752 small primary button-root\"]/..\r\n"
+			+ "");
+   	Assert.assertTrue(TOP_Text);
     }
 	
 	@Test(priority =9)
@@ -180,8 +183,6 @@ public class WatchList_functionality extends mainDriver {
     
 	Thread.sleep(5000);
 	common.click("//button[text()=\"Create\"]");
-	//common.click("//button[@class=\"jsx-2679829868 jsx-2491292752 regular primary button-root\"]/..");
-	//driver.findElement(By.xpath("//button[text()=\"Search Stocks, ETFs & Indices\"]")).click();
 	common.click("//input[@class=\"jsx-1469468354 stock-input-box full-width input\"]");
 	common.sendKeys("//input[@aria-label=\"search text\"]", "TCS");
 	Thread.sleep(5000);
@@ -323,29 +324,28 @@ public class WatchList_functionality extends mainDriver {
 	
 	@Test(priority =15)
 	public void Activity_test() throws InterruptedException {
-		common.hover("//h5[@class=\"jsx-24004412 typography-body-medium-l navtext \"]");
-	    Thread.sleep(1000);
-	    common.click("//span[@class=\"jsx-1033646475 d-flex watchlist-image typography-body-medium-m\"]/..");
-		try {
-			driver.findElement(By.xpath("(//*[@class=\"jsx-1505615841\"])[2]")).click();
-		} catch (NoSuchElementException e) 
+	common.hover("//h5[@class=\"jsx-24004412 typography-body-medium-l navtext \"]");
+	Thread.sleep(1000);
+	common.click("//span[@class=\"jsx-1033646475 d-flex watchlist-image typography-body-medium-m\"]/..");
+    try {
+		driver.findElement(By.xpath("(//*[@class=\"jsx-1505615841\"])[2]")).click();
+	} catch (NoSuchElementException e) 
 		{
-			System.out.println("pop up not displayed");
+		System.out.println("pop up not displayed");
 		}
-	    Thread.sleep(1000);
+	Thread.sleep(1000);
 
-	    common.click("//div[@id=\"app-container\"]/div/div/div/div/aside/div[1]/div[1]/a/span");
-	    
-		Thread.sleep(5000);
-		common.click("//button[text()=\"Create\"]");
-		common.click("//button[@class=\"jsx-2679829868 jsx-2491292752 regular primary button-root\"]/..");
-		common.click("//input[@class=\"jsx-1469468354 stock-input-box full-width input\"]");
-		common.sendKeys("//input[@aria-label=\"search text\"]", "TCS");
-		common.click("//img[@class=\"jsx-2243824175 jsx-152776563\"]/..");
-		common.click("//div[@class=\"Toastify__toast Toastify__toast--success\"]/..");
-		common.click("//span[@class=\"jsx-703606493 jsx-4090259817 tab-header typography-body-regular-m \"]");
-		boolean text= common.isDisplayed("//span[text()=\"Activity\"]/..");
-		Assert.assertTrue(text);
+	common.click("//div[@id=\"app-container\"]/div/div/div/div/aside/div[1]/div[1]/a/span");
+	Thread.sleep(5000);
+	common.click("//button[text()=\"Create\"]");
+	common.click("//button[@class=\"jsx-2679829868 jsx-2491292752 regular primary button-root\"]/..");
+	common.click("//input[@class=\"jsx-1469468354 stock-input-box full-width input\"]");
+	common.sendKeys("//input[@aria-label=\"search text\"]", "TCS");
+	common.click("//img[@class=\"jsx-2243824175 jsx-152776563\"]/..");
+	common.click("//div[@class=\"Toastify__toast Toastify__toast--success\"]/..");
+	common.click("//span[@class=\"jsx-703606493 jsx-4090259817 tab-header typography-body-regular-m \"]");
+	boolean text= common.isDisplayed("//span[text()=\"Activity\"]/..");
+	Assert.assertTrue(text);
 	}
 	
 	@Test(priority =16)
